@@ -382,7 +382,7 @@ def metal(render, **kwargs):
 
         texColor = render.active_texture.getColor(tU, tV)
 
-        b *= texColor[1]
+        b *= texColor[2]
         g *= texColor[1]
         r *= texColor[0]
 
@@ -394,13 +394,13 @@ def metal(render, **kwargs):
     intensity = np.dot(triangleNormal, -dirLight)
 
     if intensity < 0.5:
-        intensity = 10
+        intensity = 0.1
     elif intensity < 0.6:
-        intensity = 10
+        intensity = 0.2
     elif intensity < 0.9:
-        intensity = 10
+        intensity = 0.3
     elif intensity <= 1:
-        intensity = 10
+        intensity = 0.4
 
     b *= intensity
     g *= intensity
@@ -430,9 +430,9 @@ def sombra(render, **kwargs):
 
         texColor = render.active_texture.getColor(tU, tV)
 
-        b *= texColor[1]
+        b *= texColor[2]
         g *= texColor[1]
-        r *= texColor[1]
+        r *= texColor[0]
 
     triangleNormal = np.array([nA[0] * u + nB[0] * v + nC[0] * w,
                                nA[1] * u + nB[1] * v + nC[1] * w,
