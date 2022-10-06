@@ -463,6 +463,9 @@ class Renderer(object):
                                 self.glPoint(x, y, color(r,g,b))
                             else:
                                 self.glPoint(x,y, clr)
+
+
+
     def glFinish(self, filename):
         with open(filename, "wb") as file:
             # Header

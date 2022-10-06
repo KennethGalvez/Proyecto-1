@@ -2,24 +2,32 @@ from gl import Renderer, color, V3, V2
 from texture import Texture
 from shaders import *
 
-width = 960
-height = 540
+width = 1920
+height = 1280
 
 rend = Renderer(width, height)
 
 rend.dirLight = V3(-1,0,0)
 
-rend.background = Texture("models/green.bmp")
+rend.background = Texture("models/mar.bmp")
 
 rend.glClearBackground()
 
-#Sonic parado
+rend.active_texture = Texture("models/yellow.bmp")
+rend.active_shader = metal
+rend.glLoadModel("models/tuna.obj",
+                 translate = V3(-10, 0, -10),
+                 scale = V3(1,1,1),
+                 rotate = V3(0,0,0)) 
+    
+
+""" #Sonic parado
 rend.active_texture = Texture("models/Sonic.bmp")
 rend.active_shader = erizo
 rend.glLoadModel("models/parado.obj",
                  translate = V3(-4, 0, -10),
                  scale = V3(4,4,4),
-                 rotate = V3(0,0,0))
+                 rotate = V3(0,0,0)) 
 #Sonic corriendo
 rend.active_texture = Texture("models/Sonic.bmp")
 rend.active_shader = erizo
@@ -64,9 +72,8 @@ rend.active_shader = erizo
 rend.glLoadModel("models/super.obj",
                  translate = V3(5, 0, -10),
                  scale = V3(4,4,4),
-                 rotate = V3(0,0,0))
+                 rotate = V3(0,0,0)) """
 
 
 
 rend.glFinish("output.bmp")
-
