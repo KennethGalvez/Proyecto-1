@@ -2,24 +2,45 @@ from gl import Renderer, color, V3, V2
 from texture import Texture
 from shaders import *
 
-width = 1920
-height = 1280
+width = 1980
+height = 1275
 
 rend = Renderer(width, height)
 
-rend.dirLight = V3(-1,0,0)
+rend.dirLight = V3(1,0,0)
 
 rend.background = Texture("models/mar.bmp")
 
 rend.glClearBackground()
 
 rend.active_texture = Texture("models/yellow.bmp")
-rend.active_shader = metal
+rend.active_shader = sombra
 rend.glLoadModel("models/tuna.obj",
                  translate = V3(-10, 0, -10),
                  scale = V3(1,1,1),
                  rotate = V3(0,0,0)) 
-    
+
+rend.active_texture = Texture("models/metalica.bmp")
+rend.active_shader = metal
+rend.glLoadModel("models/submarine.obj",
+                 translate = V3(2, 0, -15),
+                 scale = V3(0.5,0.5,0.5),
+                 rotate = V3(0,-40,0)) 
+
+rend.active_texture = Texture("models/oro.bmp")
+rend.active_shader = metal
+rend.glLoadModel("models/mlrs.obj",
+                 translate = V3(-1, 0, -5),
+                 scale = V3(0.1,0.1,0.1),
+                 rotate = V3(0,0,90)) 
+
+rend.active_texture = Texture("models/rojo.bmp")
+rend.active_shader = erizo
+rend.glLoadModel("models/AquaRail.obj",
+                 translate = V3(1.7, -2, -5),
+                 scale = V3(0.1,0.1,0.1),
+                 rotate = V3(-85,70,80)) 
+
 
 """ #Sonic parado
 rend.active_texture = Texture("models/Sonic.bmp")
